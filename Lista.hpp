@@ -3,7 +3,7 @@ template <typename T>
 class Lista
 {
 private:
-  long long Longitud = 0;
+  long long Longitud;
 
 public:
   Nodo<T> *inicio;
@@ -11,22 +11,26 @@ public:
   Lista();
   ~Lista();
   void InsertarInicio(T data);
-  void imprimir(function<void(T)> Impresora);
+  void imprimir(std::function<void(T)> Impresora);
+  void Buscar(std::function<bool(Nodo<T> *)> Condicion, std::function<void(Nodo<T> *)> Impresora);
+  long long GetLongitud() { return Longitud; }
 };
 template <typename T>
 Lista<T>::Lista()
 {
+  inicio = fin = nullptr;
+  Longitud = 0;
 }
 template <typename T>
 Lista<T>::~Lista()
 {
 }
 template <typename T>
-void Lista<T>::imprimir(function<void(T)> Impresora)
+void Lista<T>::imprimir(std::function<void(T)> Impresora)
 {
   if (Longitud == 0)
   {
-    cout << "No hay nada en el arreglo para imprimir";
+    std::cout << "No hay nada en el arreglo para imprimir";
   }
   else
   {
@@ -40,11 +44,34 @@ void Lista<T>::imprimir(function<void(T)> Impresora)
     }
   }
 }
-
+template <typename T>
+void Lista<T>::Buscar(std::function<bool(Nodo<T> *)> Condicion, std::function<void(Nodo<T> *)> Impresora)
+{
+  if (Longitud == 0)
+  {
+    std::cout << "No hay nada en la lista";
+  }
+  else
+  {
+    Nodo<T> *aux = inicio;
+    int cont = 1;
+    while (!Condicion(aux) && cont <= Longitud)
+    {
+      aux = aux->Siguiente;
+    }
+    if (Condicion(aux) == false)
+    {
+      std::cout << "No se encontro en el arreglo";
+    }
+    else
+    {
+      Impresora(aux);
+    }
+  }
+}
 template <typename T>
 void Lista<T>::InsertarInicio(T data)
 {
-
   Nodo<T> *nuevo = new Nodo<T>(data);
   if (Longitud == 0)
   {

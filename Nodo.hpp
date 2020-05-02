@@ -3,8 +3,8 @@ class Nodo
 {
 public:
   T data;
-  Nodo *Siguiente;
-  Nodo *Anterior;
+  Nodo<T> *Siguiente;
+  Nodo<T> *Anterior;
   Nodo(T data);
   ~Nodo();
 };
@@ -16,4 +16,6 @@ Nodo<T>::Nodo(T data)
 template <typename T>
 Nodo<T>::~Nodo()
 {
+  Siguiente = nullptr;
+  Anterior = nullptr;
 }
