@@ -31,9 +31,7 @@ Lista<T>::~Lista()
 template <typename T>
 void Lista<T>::Buscar(std::string dato1, std::string dato2)
 {
-  _Buscar(
-      dato1, dato2, Condicion,
-      PrinLocal::Imprimir);
+  _Buscar(dato1, dato2, Condicion, PrinLocal::Imprimir);
 }
 template <typename T>
 void Lista<T>::Imprimir()

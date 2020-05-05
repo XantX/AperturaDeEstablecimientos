@@ -8,7 +8,7 @@ void EncolarLocales(Establecimientos &Data, Cola<Establecimientos> &Permitidos, 
   if (EntraEnLaCola(Data))
   {
     Permitidos.push(Data);
-    std::cout << "Entro a la cola de permitidos";
+    std::cout << "Entro a la cola de permitidos \n";
     std::cout << Data.GetNombre() << std::endl;
   }
   else
@@ -30,14 +30,14 @@ void Recorre(Cola<Establecimientos> &Permitidos, Cola<Establecimientos> &NoPermi
     Nodo<Establecimientos> *aux = NuevaLista.inicio;
     while (cont < NuevaLista.GetLongitud())
     {
+      //Recorrido para meter en la cola a los locales con las caracteristicas
       EncolarLocales(aux->data, Permitidos, NoPermitidos);
       cont++;
       aux = aux->Siguiente;
     }
   }
 }
-
-void desplegar(Cola<Establecimientos> Permitidos)
+void desplegar(Cola<Establecimientos> &Permitidos)
 {
   if (Permitidos.longitud == 0)
   {
