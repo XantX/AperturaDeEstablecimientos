@@ -29,6 +29,7 @@ bool Condicion(std::string Nombre, std::string RUC, Establecimientos dato2)
     return false;
   }
 }
+
 bool EntraEnLaCola(Establecimientos Data)
 {
   //Condicion para que el establecimeinto entre o no a la cola de permitidos

@@ -1,5 +1,7 @@
  
-Telefonica;Av.pontifices;293485ns;servios;0;0; 
-  Pepitosac;AV.Loslirios;3o428u5ns;Ferreteria;1;1; 
-  luchos;Av.losfloripondios;0232845723sa;Farmcca;1;1; 
-smahs;avloslirios;29384752sdf;Cabina;1;1; 
+Telefonica;Av.pontifices;29348523;servios;0;0; 
+Pepito;AV.Los lirios;38428u523;Ferreteria;1;1; 
+luchos;Av.Los floripondios;023284572312;Farmacia;1;1; 
+Cocatri;Av.Los lirios;293847525678;Cabina;0;0;
+OpenPlaza;Av.bien lejos;998494525678;Centro Comercial;1;1; 
+Metro;Av.Huaylas;2340752346;Centro Comercial;1;1;

@@ -8,13 +8,13 @@ void EncolarLocales(Establecimientos &Data, Cola<Establecimientos> &Permitidos, 
   if (EntraEnLaCola(Data))
   {
     Permitidos.push(Data);
-    std::cout << "Entro a la cola de permitidos \n";
+    std::cout << "Entro a la cola de permitidos: \n";
     std::cout << Data.GetNombre() << std::endl;
   }
   else
   {
     NoPermitidos.push(Data);
-    std::cout << "No esta en la cola de permitidos. \n";
+    std::cout << "No esta en la cola de permitidos: \n";
     std::cout << Data.GetNombre() << std::endl;
   }
 }

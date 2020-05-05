@@ -58,7 +58,7 @@ void Leer(Lista<Establecimientos> &ListaEntera)
         ListaEntera.InsertarInicio(nuevo);
         cont = 1;
       }
-      std::cout << cont;
+      
       DatoIn::InDatosArch(nuevo, datos, cont);
 
       std::cout << datos << std::endl;
