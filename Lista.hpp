@@ -1,9 +1,12 @@
-
+#ifndef LISTA_HPP
+#define LISTA_HPP
 template <typename T>
 class Lista
 {
 private:
   long long Longitud;
+  void _Buscar(std::string dato1, std::string dato2, std::function<bool(std::string, std::string, T)> Condicion, std::function<void(T)> Impresora);
+  void _Imprimir(std::function<void(T)> Impresora);
 
 public:
   Nodo<T> *inicio;
@@ -11,8 +14,8 @@ public:
   Lista();
   ~Lista();
   void InsertarInicio(T data);
-  void imprimir(std::function<void(T)> Impresora);
-  void Buscar(std::function<bool(Nodo<T> *)> Condicion, std::function<void(Nodo<T> *)> Impresora);
+  void Buscar(std::string dato1, std::string dato2);
+  void Imprimir();
   long long GetLongitud() { return Longitud; }
 };
 template <typename T>
@@ -26,7 +29,19 @@ Lista<T>::~Lista()
 {
 }
 template <typename T>
-void Lista<T>::imprimir(std::function<void(T)> Impresora)
+void Lista<T>::Buscar(std::string dato1, std::string dato2)
+{
+  _Buscar(
+      dato1, dato2, Condicion,
+      PrinLocal::Imprimir);
+}
+template <typename T>
+void Lista<T>::Imprimir()
+{
+  _Imprimir(PrinLocal::Imprimir);
+}
+template <typename T>
+void Lista<T>::_Imprimir(std::function<void(T)> Impresora)
 {
   if (Longitud == 0)
   {
@@ -45,7 +60,7 @@ void Lista<T>::imprimir(std::function<void(T)> Impresora)
   }
 }
 template <typename T>
-void Lista<T>::Buscar(std::function<bool(Nodo<T> *)> Condicion, std::function<void(Nodo<T> *)> Impresora)
+void Lista<T>::_Buscar(std::string dato1, std::string dato2, std::function<bool(std::string, std::string, T)> Condicion, std::function<void(T)> Impresora)
 {
   if (Longitud == 0)
   {
@@ -55,17 +70,17 @@ void Lista<T>::Buscar(std::function<bool(Nodo<T> *)> Condicion, std::function<vo
   {
     Nodo<T> *aux = inicio;
     int cont = 1;
-    while (!Condicion(aux) && cont <= Longitud)
+    while (!Condicion(dato1, dato2, aux->data) && cont <= Longitud)
     {
       aux = aux->Siguiente;
     }
-    if (Condicion(aux) == false)
+    if (Condicion(dato1, dato2, aux->data) == false)
     {
       std::cout << "No se encontro en el arreglo";
     }
     else
     {
-      Impresora(aux);
+      Impresora(aux->data);
     }
   }
 }
@@ -85,3 +100,4 @@ void Lista<T>::InsertarInicio(T data)
   }
   Longitud++;
 }
+#endif

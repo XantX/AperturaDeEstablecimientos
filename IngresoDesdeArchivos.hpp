@@ -17,7 +17,9 @@ void guardar(Lista<T> ListaEntera)
       std::cout << "Estoy escribiendo";
       NuevoArchivo << aux->data.GetNombre() << ";";
       NuevoArchivo << aux->data.GetDireccion() << ";";
-      NuevoArchivo << aux->data.GetTipoLocal() << ".";
+      NuevoArchivo << aux->data.GetTipoLocal() << ";";
+      NuevoArchivo << aux->data.GetCarnet() << ";";
+      NuevoArchivo << aux->data.GetSeguro();
       NuevoArchivo << std::endl;
       cont++;
       aux = aux->Siguiente;
@@ -25,7 +27,4 @@ void guardar(Lista<T> ListaEntera)
 
     NuevoArchivo.close();
   }
-}
-void leer()
-{
 }

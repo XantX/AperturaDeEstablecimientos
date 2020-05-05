@@ -1,3 +1,5 @@
+#ifndef COLA_HPP
+#define COLA_HPP
 template <typename T>
 class Cola
 {
@@ -63,3 +65,4 @@ void Cola<T>::pop(std::function<void(T)> Imprimir)
     longitud--;
   }
 }
+#endif

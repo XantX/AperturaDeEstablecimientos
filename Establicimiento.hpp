@@ -1,6 +1,8 @@
 
 typedef std::string s;
 typedef long long ll;
+#ifndef ESTABLECIMIENTOS_HPP
+#define ESTABLECIMIENTOS_HPP
 class Establecimientos
 {
 private:
@@ -8,9 +10,8 @@ private:
   s RUC;
   s Direccion;
   s tipoLocal;
-  ll Area; //m^2
-  ll AforoMax;
-  int BanosCANT;
+  bool CarnetDeDesInfeccion;
+  bool SeguroDeTrabajadores;
 
 public:
   Establecimientos();
@@ -19,16 +20,14 @@ public:
   void SetRUC(s RUC);
   void SetDireccion(s Direccion);
   void SetipoLocal(s tipoLocal);
-  void SetArea(ll Area);
-  void SetAforoMax(ll AforoMax);
-  void SetBanosCant(int BanosCant);
+  void SetCarnet(bool carnet);
+  void SetSeguro(bool Seguro);
   std::string GetNombre();
   std::string GetRUC();
   std::string GetDireccion();
   std::string GetTipoLocal();
-  ll GetArea();
-  ll GetAforoMax();
-  int GetBanosCANT();
+  bool GetCarnet();
+  bool GetSeguro();
 };
 
 Establecimientos::Establecimientos()
@@ -53,17 +52,21 @@ void Establecimientos::SetipoLocal(s Local)
 {
   this->tipoLocal = Local;
 }
-void Establecimientos::SetArea(ll Area)
+void Establecimientos::SetSeguro(bool seguro)
 {
-  this->Area = Area;
+  this->SeguroDeTrabajadores = seguro;
 }
-void Establecimientos::SetAforoMax(ll Aforo)
+void Establecimientos::SetCarnet(bool carnet)
 {
-  this->AforoMax = Aforo;
+  this->CarnetDeDesInfeccion = carnet;
 }
-void Establecimientos::SetBanosCant(int BanosCant)
+bool Establecimientos::GetCarnet()
 {
-  this->BanosCANT = BanosCant;
+  return CarnetDeDesInfeccion;
+}
+bool Establecimientos::GetSeguro()
+{
+  return SeguroDeTrabajadores;
 }
 std::string Establecimientos::GetNombre()
 {
@@ -81,15 +84,4 @@ std::string Establecimientos::GetTipoLocal()
 {
   return tipoLocal;
 }
-ll Establecimientos::GetArea()
-{
-  return Area;
-}
-ll Establecimientos::GetAforoMax()
-{
-  return AforoMax;
-}
-int Establecimientos::GetBanosCANT()
-{
-  return BanosCANT;
-}
+#endif
