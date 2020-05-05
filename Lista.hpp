@@ -16,6 +16,7 @@ public:
   void InsertarInicio(T data);
   void Buscar(std::string dato1, std::string dato2);
   void Imprimir();
+
   long long GetLongitud() { return Longitud; }
 };
 template <typename T>
